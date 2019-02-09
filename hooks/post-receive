@@ -1,0 +1,3 @@
+#!/bin/sh
+GIT_WORK_TREE=/home/dansch171/roboticeagles.dreamhosters.com git checkout -f
+
