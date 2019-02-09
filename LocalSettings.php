@@ -146,6 +146,7 @@ wfLoadExtension( 'ReplaceText' );
 wfLoadExtension( 'SpamBlacklist' );
 wfLoadExtension( 'TitleBlacklist' );
 wfLoadExtension( 'WikiEditor' );
+wfLoadExtension( 'SyntaxHighlight_GeSHi' );
 
 
 # End of automatically generated settings.
