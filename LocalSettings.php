@@ -129,7 +129,6 @@ $wgDefaultSkin = "timeless";
 wfLoadSkin( 'MonoBook' );
 wfLoadSkin( 'Timeless' );
 wfLoadSkin( 'Vector' );
-wfLoadSkin( 'Eveskin' );
 
 
 # Enabled extensions. Most of the extensions are enabled by adding
