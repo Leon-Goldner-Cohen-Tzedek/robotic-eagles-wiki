@@ -32,8 +32,22 @@ $wgScriptPath = "";
 ## The protocol and server name to use in fully-qualified URLs
 $wgServer = "http://www.roboticeagles.dreamhosters.com";
 
+
 ## The URL path to static resources (images, scripts, etc.)
 $wgResourceBasePath = $wgScriptPath;
+
+
+$wgUploadDirectory = $wgResourceBasePath;
+
+# Uploads:
+$wgUploadPath = "img_auth.php";
+
+// Add several file types to the default array
+$wgFileExtensions = array_merge(
+    $wgFileExtensions, array(
+        'pdf', 'ppt', 'jp2', 'webp', 'doc','docx', 'xls', 'xlsx', 'jpg', 'jpeg', 'png', 'xml', 'html', 'cpp', 'jar', 'js', 'py', 'c', 'h', 'php', 'stl', 'dwg', 'dxf', 'dgn', 'sh', 'mp3', 'flac', 'wav', 'aiff', 'aac', 'ogg', 'wma', 'alac'
+        )
+    );
 
 ## The URL path to the logo.  Make sure you change this from the default,
 ## or else you'll overwrite your logo when you upgrade!
@@ -116,9 +130,26 @@ $wgRightsIcon = "";
 $wgDiff3 = "/usr/bin/diff3";
 
 # The following permissions were set based on your choice in the installer
+# * permissions: createaccount, createpage, createtalk, edit, editmyoptions, editmyprivateinfo, editmywatchlist, read, viewmyprivateinfo, viewmywatchlist, writeapi
 $wgGroupPermissions['*']['createaccount'] = false;
 $wgGroupPermissions['*']['edit'] = false;
 $wgGroupPermissions['*']['read'] = false;
+
+# admin permissions: applychangetags, changetags, createaccount, createpage, createtalk, edit, editcontentmodel, editmyusercss, editmyuserjs, editmyuserjson, minoredit, move, move-categorypages, move-rootuserpages, move-subpages, movefile, purge, read, reupload, reupload-shared, sendemail, upload, writeapi
+$wgGroupPermissions['admin'] = $wgGroupPermissions['user'];
+$wgGroupPermissions['admin']['createaccount'] = true;
+
+# user permissions: applychangetags, changetags, createpage, createtalk, edit, editcontentmodel, editmyusercss, editmyuserjs, editmyuserjson, minoredit, move, move-categorypages, move-rootuserpages, move-subpages, movefile, purge, read, reupload, reupload-shared, sendemail, upload, writeapi
+$wgGroupPermissions['user']['move'] = false;
+
+# viewer permissions: 
+$wgGroupPermissions['viewer'] = $wgGroupPermissions['*'];
+$wgGroupPermissions['viewer']['read'] = true;
+
+
+$wgWhitelistRead = array(
+    "Sponsors", "Fundraising", "MediaWiki:Common.css", "MediaWiki:Common.js"
+    );
 
 ## Default skin: you can change the default skin. Use the internal symbolic
 ## names, ie 'vector', 'monobook':
